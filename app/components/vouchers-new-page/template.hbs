@@ -1,0 +1,8 @@
+{{#power-select
+  search=(perform searchClients)
+  selected=selected
+  onchange=(action (mut selected))
+  as |client|
+}}
+  {{client.firstName}} {{client.lastName}}
+{{/power-select}}
