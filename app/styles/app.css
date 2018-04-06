@@ -1,0 +1,11 @@
+html {
+  background-color: #F3F3F3;
+  font-family: 'Source Sans Pro K', Sans-Serif, serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
