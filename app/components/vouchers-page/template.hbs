@@ -1,0 +1,13 @@
+<div local-class="page">
+  {{#client-search as |search|}}
+  <div local-class="clients">
+      {{#with search.clients as |clients|}}
+        <div local-class="client-count">{{clients.length}} clients found</div>
+
+        {{#each clients as |client|}}
+          {{vouchers-page/-client client=client}}
+        {{/each}}
+      {{/with}}
+    </div>
+  {{/client-search}}
+</div>
