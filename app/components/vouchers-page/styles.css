@@ -1,0 +1,10 @@
+.clients {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-count {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: 600;
+}
