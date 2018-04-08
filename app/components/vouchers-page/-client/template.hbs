@@ -5,8 +5,27 @@
   </div>
 
   <div local-class="create-voucher">
-    <button local-class="button" type="button">
-      <span local-class="span">+ Voucher</span>
-    </button>
+    {{#if showVoucherField}}
+      <input type="text"
+        local-class="voucher-amount"
+        data-test-voucher-amount
+        autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+        placeholder="Enter voucher amount"
+        oninput={{action (action (mut voucherAmount)) value="target.value"}}>
+
+      <button local-class="button blue" type="button" onclick={{action "toggle"}}>
+        <span local-class="button-text">Save</span>
+      </button>
+
+      <span local-class="button-spacer-text">or</span>
+
+      <button local-class="button" type="button" onclick={{action "cancel"}}>
+        <span local-class="button-text">Cancel</span>
+      </button>
+    {{else}}
+      <button local-class="button red" type="button" onclick={{action "toggle"}}>
+        <span local-class="button-text">+ Voucher</span>
+      </button>
+    {{/if}}
   </div>
 </div>
