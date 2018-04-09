@@ -1,9 +1,12 @@
-{{#power-select
-  search=(perform searchClients)
-  selected=selected
-  onchange=(action (mut selected))
-  as |client|}}
+<input type="text" value={{term}}
+  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+  oninput={{action (mut term) value="target.value"}}>
 
-    {{client.firstName}}
+{{#if term}}
+  {{#if clients}}
+  {{else}}
+    No results
+  {{/if}}
+{{/if}}
 
-{{/power-select}}
+{{log "XXXX" clients term}}

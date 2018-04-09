@@ -1,9 +1,20 @@
 import Component from '@ember/component';
 import { task, timeout } from 'ember-concurrency';
 import fetch from 'fetch';
+import { computed } from '@ember/object';
 
 export default Component.extend({
-  searchClients: task(function* (term) {
+  term: null,
+
+  clients: computed('term', async function() {
+    let term = this.get('term');
+
+    let clients = await this.get('_searchClients').perform(term)
+
+    return clients;
+  }),
+
+  _searchClients: task(function* (term) {
     yield timeout(600);
 
     let tenantId = 'eTC3QY5W3p_HmGHezKfxJw';
@@ -18,6 +29,8 @@ export default Component.extend({
       }
     };
 
-    return fetch(url, options).then((resp) => resp.json()).then((json) => json._embedded.clients);
+    let json = yield fetch(url, options).then((resp) => resp.json());
+
+    return json._embedded && json._embedded.clients;
   }).restartable()
 });
