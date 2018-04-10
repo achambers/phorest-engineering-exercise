@@ -1,0 +1,9 @@
+<div local-class="client" data-test-client {{action (action on-select)}}>
+  <span local-class="name">
+    {{concat client.firstName " " client.lastName}}
+  </span>
+
+  <span local-class="contact-details">
+    {{client.email}} &sdot; {{client.mobile}}
+  </span>
+</div>

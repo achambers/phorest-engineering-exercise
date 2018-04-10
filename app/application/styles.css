@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+}
+
+.name {
+  margin: 20px;
+}

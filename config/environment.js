@@ -22,11 +22,17 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    apiHost: 'http://api-gateway-dev.phorest.com'
+    apiHost: 'http://api-gateway-dev.phorest.com',
+    apiBasePath: 'third-party-api-server/api'
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
+    //if (environment === 'development') {
+      //ENV['ember-cli-mirage'] = {
+        //enabled: false
+      //}
+    //}
+
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;

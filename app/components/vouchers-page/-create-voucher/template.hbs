@@ -1,0 +1,47 @@
+{{#if voucherId}}
+  <div data-test-voucher-id>{{voucherId}}</div>
+
+  <button type="button" onclick={{action "handleEmail"}}>
+    <span>Email to client</span>
+  </button>
+
+  <button data-test-done-button type="button" onclick={{action (action on-done)}}>
+    <span>Done</span>
+  </button>
+{{else}}
+  <form onsubmit={{action "handleCreateVoucher" client voucherAmount}}>
+    <div local-class="voucher-amount">
+      <span local-class="currency">€</span>
+      <input type="text" value=""
+        local-class="voucher-amount-field"
+        data-test-voucher-amount-field
+        autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+        oninput={{action (mut voucherAmount) value="target.value"}}>
+
+      <div local-class="spinner">
+        {{#if _createVoucher.isRunning}}
+          {{loading-spinner}}
+        {{/if}}
+      </div>
+    </div>
+
+    <div local-class="actions">
+      <button
+        local-class="button primary"
+        data-test-create-voucher-button
+        type="submit">
+          <span>Create voucher</span>
+      </button>
+
+      <span local-class="button-spacer-text">or</span>
+
+      <button
+        local-class="button secondary"
+        data-test-cancel-button
+        type="button"
+        onclick={{action (action on-cancel)}}>
+          <span>Cancel</span>
+      </button>
+    </div>
+  </form>
+{{/if}}

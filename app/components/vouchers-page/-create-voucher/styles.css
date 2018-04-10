@@ -1,0 +1,76 @@
+.voucher-amount {
+  display: flex;
+  height: 52px;
+  width: 550px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  border: 1px solid #EA3D21;
+  margin-bottom: 20px;
+}
+
+.currency {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.voucher-amount-field {
+  padding: 0 9px 0 0;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1.2;
+  line-height: 40px;
+  outline: 0;
+  border: none;
+  flex-grow: 0.9;
+  font-size: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  padding: 0 19px;
+  transition: opacity .3s;
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: #FFFFFF;
+}
+
+.button.primary {
+  background-color: #EA3D21;
+}
+
+.button.secondary {
+  background-color: inherit;
+  color: inherit;
+}
+
+.button-spacer-text {
+  margin: auto 0 auto 20px;;
+  font-size: 14px;
+  color: #838D94;
+}
+
+.spinner {
+  width: 50px;
+  position: relative;
+}

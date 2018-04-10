@@ -1,0 +1,52 @@
+<div local-class="page">
+  <div local-class="client-search">
+    <div local-class="search-icon">
+      <img src="/images/search-icon.png" alt="">
+    </div>
+
+    <input type="text" value=""
+      data-test-client-search-field
+      local-class="search-box"
+      autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+      placeholder="Search clients by email or phone number"
+      oninput={{perform debouncedSearch value="target.value"}}>
+
+    <div local-class="spinner">
+      {{#if _searchClients.isRunning}}
+        {{loading-spinner}}
+      {{/if}}
+    </div>
+  </div>
+
+  <div local-class="client-list">
+    {{#if term}}
+      {{#if selectedClient}}
+        <div local-class="selected-client" data-test-selected-client>
+          {{vouchers-page/-client
+            client=selectedClient
+            on-select=(action (mut selectedClient) null)}}
+        </div>
+
+        {{vouchers-page/-create-voucher 
+          client=selectedClient
+          on-done=(action "reset")
+          on-cancel=(action "reset")}}
+      {{else}}
+        <div local-class="result-count" data-test-result-count>
+          {{#if clients}}
+            {{clients.length}} clients found
+          {{else}}
+            No results
+          {{/if}}
+        </div>
+
+        {{#each clients as |client|}}
+          {{vouchers-page/-client
+            client=client
+            on-select=(action (mut selectedClient) client)}}
+        {{else}}
+        {{/each}}
+      {{/if}}
+    {{/if}}
+  </div>
+</div>
